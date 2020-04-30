@@ -4,19 +4,40 @@ MySQL5.7の公式のDockerイメージに日本語化設定を追加したもの
 # 使い方
 
 ## Docker Hubからイメージをpull
-docker pull kamatimaru/mysql57-ja
+```shell
+$ docker pull kamatimaru/mysql57-ja
+```
 
 ## イメージをローカルでビルド
 ```shell
-docker build -t kamatimaru/mysql57-ja .
+$ docker build -t kamatimaru/mysql57-ja .
 ```
 
 ## コンテナ起動
 ```shell
-docker run --name mysql57-ja -e MYSQL_ROOT_PASSWORD=password -d kamatimaru/mysql57-ja:latest
+$ docker run --name mysql57-ja -e MYSQL_ROOT_PASSWORD=password -d kamatimaru/mysql57-ja:latest
 ```
 
-## ログイン
+## コンテナへのログイン
 ```shell
-docker exec -it mysql57-ja /bin/bash
+$ docker exec -it mysql57-ja /bin/bash
+```
+
+## mysqlへのログイン
+```shell
+$ mysql -uroot -p
+Enter password: # 「password」と入力
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 2
+Server version: 5.7.30 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
 ```
