@@ -10,12 +10,14 @@ $ docker pull kamatimaru/mysql57-ja
 
 ## イメージをローカルでビルド
 ```shell
+$ git clone https://github.com/delhi09/docker-mysql57-ja.git
+$ cd docker-mysql57-ja
 $ docker build -t kamatimaru/mysql57-ja .
 ```
 
 ## コンテナ起動
 ```shell
-$ docker run --name mysql57-ja -e MYSQL_ROOT_PASSWORD=password -d kamatimaru/mysql57-ja:latest
+$ docker run --name mysql57-ja -e MYSQL_ROOT_PASSWORD=password -d -p 3306:3306 kamatimaru/mysql57-ja:latest
 ```
 
 ## コンテナへのログイン
@@ -25,7 +27,7 @@ $ docker exec -it mysql57-ja /bin/bash
 
 ## mysqlへのログイン
 ```shell
-$ mysql -uroot -p
+$ mysql -u root -p -h 127.0.0.1
 Enter password: # 「password」と入力
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 2
